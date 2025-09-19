@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Meme</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f5f5f5; margin: 0; padding: 0; }
+    header { background: #333; color: #fff; padding: 15px; text-align: center; }
+    .meme {
+      background: #fff; max-width: 400px; margin: 20px auto; padding: 10px;
+      border-radius: 10px; box-shadow: 0 0 5px rgba(0,0,0,0.2); text-align: center;
+    }
+    .meme img { max-width: 100%; border-radius: 10px; }
+    button {
+      background: #ff9800; border: none; padding: 10px 20px; margin: 5px;
+      border-radius: 5px; cursor: pointer; color: #fff; font-weight: bold;
+    }
+    button:hover { background: #e68900; }
+    .vote { margin-top: 10px; font-size: 18px; color: #333; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Website Meme Voting 🤣</h1>
+  </header>
+
+  <!-- Meme pertama -->
+  <div class="meme">
+    <h2>Meme Lucu #1</h2>
+    <!-- Ganti URL ini dengan link gambar lu -->
+    <img src="meme1.jpg" alt="Meme 1">
+    <div class="vote">👍 <span id="count1">0</span></div>
+    <button onclick="vote(1)">Vote</button>
+    <button onclick="downloadImage('meme1.jpg')">Download</button>
+  </div>
+
+  <!-- Meme kedua -->
+  <div class="meme">
+    <h2>Meme Lucu #2</h2>
+    <img src="meme2.jpg" alt="Meme 2">
+    <div class="vote">👍 <span id="count2">0</span></div>
+    <button onclick="vote(2)">Vote</button>
+    <button onclick="downloadImage('meme2.jpg')">Download</button>
+  </div>
+
+  <script>
+    // Vote system
+    let votes = {1: 0, 2: 0};
+    function vote(id) {
+      votes[id]++;
+      document.getElementById("count" + id).innerText = votes[id];
+    }
+
+    // Download system
+    function downloadImage(filename) {
+      const a = document.createElement("a");
+      a.href = filename; // file lokal / url gambar
+      a.download = filename.split("/").pop();
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+</body>
+</html>
