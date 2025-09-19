@@ -1,6 +1,6 @@
 // Daftar meme yang ada di folder memes/
 const memes = [
-  {id: "meme1", file: "memes/meme1.jpg"},
+  {id: "meme1", file: "memes/IMG-20250911.jpg"},
   {id: "meme2", file: "memes/meme2.png"},
   {id: "meme3", file: "memes/meme3.jpg"}
 ];
